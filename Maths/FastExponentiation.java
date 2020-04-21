@@ -27,6 +27,9 @@ public class FastExponentiation {
 		}
 	}
 	//here use modulo since the result may overflow if N is large
+	//Mod Property: (A * B) mod C = (A mod C * B mod C) mod C
+	//so here we can also return (R%M * R%M)%M instead of (R * R) % M
+	//and ( R%M * R%M * a)%M instead of (R * R * a) % M
 	public long power(final int a, final int N, int M) {
 		if (N == 0) {
 			return 1;
