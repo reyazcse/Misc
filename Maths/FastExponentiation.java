@@ -26,7 +26,7 @@ public class FastExponentiation {
 			}
 		}
 	}
-
+	//here use modulo since the result may overflow if N is large
 	public long power(final int a, final int N, int M) {
 		if (N == 0) {
 			return 1;
