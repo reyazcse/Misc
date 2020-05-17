@@ -1,0 +1,18 @@
+1. storing a cell of a matrix.
+we can store like this for example in a queue:
+m: total rows of matrix
+n: total columns of matrix
+
+for(int i=0; i<m; i++) {
+	for(int j=0; j<n; j++) {
+		if(grid[i][j] == 0) {
+			int cell = i*n + j;     
+			queue.add(cell);
+		}
+	}
+}
+
+Retrieving the value of row and col:
+int cell = queue.poll();
+int x = cell/n;
+int y = cell%n;
