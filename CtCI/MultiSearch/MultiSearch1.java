@@ -26,8 +26,10 @@ class TrieNode1 {
 		indexes = new ArrayList<>();
 	}
 	public void insert(String word, int position) {
+		if(word == null)
+			return;
 		indexes.add(position);
-		if(word == null || word.length() == 0) {
+		if(word.length() == 0) {
 			terminates = true;
 			return;
 		}
