@@ -82,7 +82,7 @@ public class MultiSearch1 {
 		   for(String small : smalls) {
 			   List<Integer> locations = trie.search(small);
 			   adjustLocations(locations, small);
-			   putIntoMap(lookup,small,locations);
+			   lookup.put(small, locations);
 		   }
 		   
 		   return lookup;
@@ -95,9 +95,6 @@ public class MultiSearch1 {
 		}
 	}
 	
-	private void putIntoMap(Map<String, List<Integer>> lookup, String str, List<Integer> locations) {
-		lookup.put(str, locations);
-	}
 	
 	private void adjustLocations (List<Integer> locations, String str) {
 		for(int i=0; i<locations.size(); i++) {
