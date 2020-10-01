@@ -22,6 +22,8 @@ Note:
 	When two buildings start from same x coordinate, then we need to consider the higher building first
 	When two buildings end at the same x coordinate, then we need to consider building with lower height first
 	Else we need to consider the start building first if one is starting and other is ending at the same x coordinate
+	
+	We can also Max Heap. So we need to use Priority Queue in java
  * */
 package leetcode;
 
