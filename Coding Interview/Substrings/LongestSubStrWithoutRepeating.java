@@ -16,7 +16,8 @@ Solution:
 	We use a set.
 	We traverse each char in the given string.
 		When we see a char not there in set, we update the substring size.
-		When we see a char which is already there, then we must delete chars from start till we go to a position where we find that char.
+		When we see a char which is already there, then we must delete chars from start till we do not find that char.
+		We add the char since 'i' (or 'end') is pointing currently
 		'start' needs to be now after that char. 
  * */
 package leetcode;
