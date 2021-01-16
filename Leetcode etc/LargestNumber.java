@@ -15,7 +15,7 @@ public class LargestNumber {
 		
 		Arrays.sort(strs, (a, b) -> {
 			String order1 = a+b;
-			String order2 = b+1;
+			String order2 = b+a;
 			return order2.compareTo(order1);
 		});
 		
