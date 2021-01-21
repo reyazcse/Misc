@@ -123,11 +123,12 @@ public class SubsetsII {
 		}
 		
 		int k = 0;
-		
+		//calculate count of nums[idx]
 		while(idx + k < nums.length && nums[idx] == nums[idx + k]) {
 			k++;
 		}
 		
+		//nums[idx] can be chosen 0 to k times
 		for(int j=0; j<=k; j++) {
 			dfs3(nums, idx + k, path, result);
 			path.add(nums[idx]);
