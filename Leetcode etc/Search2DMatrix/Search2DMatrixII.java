@@ -48,3 +48,4 @@ public class Search2DMatrixII {
 	}
 
 }
+//Note: We can use binary search here also. See ctci 10.9 approach 2
