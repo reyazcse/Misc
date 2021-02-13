@@ -60,6 +60,7 @@ public class DuplicateNum {
 	}
 
 }
+//Note that this problem cannot be solved using xor method as intput array can be like this: [2 2 2 2 2]
 //Another solution based on tortoise hare model. See solution on leetcode for logic.Here is solutin:
 /*
 
