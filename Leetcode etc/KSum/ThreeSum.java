@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ThreeSum {
-	//this solution using HashMap will give duplicate triplets and hence not accepted
+	//this solution not accepted as it gives wrong answer. for e.g 1 2 2 2 3 and, then it will give many triplets which is wrong
 	public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> triplets = new ArrayList<List<Integer>>();
         HashMap<Integer, Integer> map = new HashMap<>();
