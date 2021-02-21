@@ -45,6 +45,7 @@ public class WordSearchIITrie {
 		}
 		Set<String> result = new HashSet<>();
 		//from each position, searh for all the words that present  in the dictionary (or the trie)
+		boolean [][] visited = new boolean[board.length][board[0].length];
 		for(int i=0; i<board.length; i++) {
 			for(int j=0; j<board[0].length; j++) {
 				boolean [][] visited = new boolean[board.length][board[0].length];
