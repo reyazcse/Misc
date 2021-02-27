@@ -1,4 +1,5 @@
-//WRONG OUTPUT SOMETIMES!!!
+//WRONG OUTPUT !!!
+//NEED to improve further
 //https://leetcode.com/problems/wiggle-sort-ii/
 /*
 	The idea is same mentioned in WiggleSortII.
@@ -28,15 +29,33 @@ public class WiggleSortIIOptimal {
 		}
 		
 		int n = nums.length;
-		int k = (n+1)/2;					//see above explanation to understand why we take n+1.
+		int k = (n-1)/2;					//see above explanation to understand why we take n+1.
 		
-		int[] tmpArray = nums.clone();
-		int medianIndex = quickSelect(tmpArray, 0, n-1, k);
+		int[] tmpArray = new int[n];
+		int medianElt = quickSelect(nums, 0, n-1, k);
 		
-		//medianIndex divides tmpArray into parts such that elements on the left of tmpArray[medianIndex]
-		//are <= tmpArray[medianIndex] and elements on right part are greater
+		int s =0, e = n-1;
+		for(int i=0; i<n; i++) {
+			if(nums[i] < medianElt) {
+				tmpArray[s] = nums[i];
+				s++;
+			}else if (nums[i] > medianElt) {
+				tmpArray[e] = nums[i];
+				e--;
+			}
+		}
 		
-		int smallIdx = medianIndex;
+		while(s < k) {
+			tmpArray[s] = medianElt;
+			s++;
+		}
+		while( e > k) {
+			tmpArray[e] = medianElt;
+			e--;
+		}
+		
+		
+		int smallIdx = k;
 		int bigIdx = n-1;
 		//put small elements at even positions and big elements at odd positions
 		for(int i=0; i<n; i++) {
@@ -46,14 +65,14 @@ public class WiggleSortIIOptimal {
 				nums[i] = tmpArray[bigIdx--];
 			}
 		}
-		
+		return;
 	}
 	
 	private int quickSelect(int[] nums, int l, int r, int k) {
 		int pivot = randomPartition(nums, l, r);
 		
 		if(pivot - l + 1 == k) {
-			return pivot;
+			return nums[pivot];
 		}else if (pivot - l + 1 > k) {
 			return quickSelect(nums, l, pivot-1, k);
 		}else {
@@ -87,7 +106,8 @@ public class WiggleSortIIOptimal {
 		nums[j] = tmp;
 	}
 	public static void main(String[] args) {
-		int [] nums = {2,3,3,2,2,2,1,1};
+		//int [] nums = {2,3,3,2,2,2,1,1};
+		int[] nums = {1,3,2,2,3,1};
 		WiggleSortIIOptimal ob = new WiggleSortIIOptimal();
 		ob.wiggleSort(nums);
 		for(int num : nums) {
