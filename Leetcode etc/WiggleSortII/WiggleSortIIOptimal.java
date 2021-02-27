@@ -1,3 +1,4 @@
+//WRONG OUTPUT SOMETIMES!!!
 //https://leetcode.com/problems/wiggle-sort-ii/
 /*
 	The idea is same mentioned in WiggleSortII.
@@ -14,6 +15,10 @@
 Note: Even though the complexity is less than WiggleSortII solution, but runtime is much more
 References: https://www.youtube.com/watch?v=qV-QnOGEq7I
  * */
+
+//NOTE: Output is WRONG sometimes!!!
+//wrong output: 2  3  1  3  1  2  2  2  
+//correct output: 2  3  2  3  1  2  1  2  
 package leetcode;
 
 public class WiggleSortIIOptimal {
@@ -41,7 +46,7 @@ public class WiggleSortIIOptimal {
 				nums[i] = tmpArray[bigIdx--];
 			}
 		}
-		return;
+		
 	}
 	
 	private int quickSelect(int[] nums, int l, int r, int k) {
@@ -85,5 +90,8 @@ public class WiggleSortIIOptimal {
 		int [] nums = {2,3,3,2,2,2,1,1};
 		WiggleSortIIOptimal ob = new WiggleSortIIOptimal();
 		ob.wiggleSort(nums);
+		for(int num : nums) {
+			System.out.print(num + "  ");
+		}
 	}
 }
