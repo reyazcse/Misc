@@ -29,7 +29,7 @@ public class WiggleSortIIOptimal {
 		}
 		
 		int n = nums.length;
-		int k = (n-1)/2;					//see above explanation to understand why we take n+1.
+		int k = (n+1)/2;					//see above explanation to understand why we take n+1.
 		
 		int[] tmpArray = new int[n];
 		int medianElt = quickSelect(nums, 0, n-1, k);
@@ -45,11 +45,11 @@ public class WiggleSortIIOptimal {
 			}
 		}
 		
-		while(s < k) {
+		while(s <= k) {
 			tmpArray[s] = medianElt;
 			s++;
 		}
-		while( e > k) {
+		while( e >= k) {
 			tmpArray[e] = medianElt;
 			e--;
 		}
