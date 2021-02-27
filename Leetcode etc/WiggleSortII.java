@@ -38,8 +38,11 @@ Solution:
  * */
 package leetcode;
 
+import java.util.Arrays;
+
 public class WiggleSortII {
 	public void wiggleSort(int[] nums) {
+		Arrays.sort(nums);
 		int n = nums.length;
 		int mid = (n-1)/2;
 		int right  = n-1;
