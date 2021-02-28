@@ -21,10 +21,14 @@ and current negative value nums[i].
 
 We have localMax and localMin variables to keep track of least and max value. 
 Also note at each element, nums[i] can be the least or max value: for example localMax = Math.max(nums[i], localMax*nums[i]);
+Method 1 implements this idea.
+
+See Method 2 for a straightforward solution
  * */
 package leetcode;
 
 public class MaximumProductSubarray {
+	//Method 1
 	public int maxProduct(int[] nums) {
 		if(nums == null || nums.length == 0) {
 			return 0;
@@ -44,9 +48,39 @@ public class MaximumProductSubarray {
 		}
 		return globalMax;
 	}
+	
+	//Method 2
+	public int maxProduct_Simple(int[] nums) {
+		if(nums == null || nums.length == 0) {
+			return 0;
+		}
+		
+		int prev_max_prod = nums[0];
+		int prev_min_prod = nums[0];
+		int ans = nums[0];
+		
+		for(int i=1; i<nums.length; i++) {
+			int curr_max_prod = maxOf(nums[i], prev_max_prod * nums[i], prev_min_prod * nums[i]);
+			int curr_min_prod = minOf(nums[i], prev_max_prod * nums[i], prev_min_prod * nums[i]);
+			ans = Math.max(ans, curr_max_prod);
+			
+			prev_max_prod = curr_max_prod;
+			prev_min_prod = curr_min_prod;
+		}
+		return ans;
+	}
+	
+	private int maxOf(int a, int b, int c) {
+		return Math.max(a, Math.max(b, c));
+	}
+	
+	private int minOf(int a, int b, int c) {
+		return Math.min(a, Math.min(b, c));
+	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int [] nums  = {-2, 3, -4};
+		MaximumProductSubarray ob = new MaximumProductSubarray();
+		System.out.println(ob.maxProduct_Simple(nums));
 	}
 
 }
