@@ -1,4 +1,5 @@
-//Problem: Largest rectangle in a histogram
+//Problem: https://leetcode.com/problems/largest-rectangle-in-histogram/
+
 package misc;
 
 import java.util.Stack;
@@ -6,8 +7,8 @@ import java.util.Stack;
 public class LargestRectangleHistogram {
 	/*
 		Time complexity : O(n^2)
-		Here for each bar, we find out the index of the leftmost bar which is smaller and also
-		the index of the rightmost bar which is smaller than current bar.
+		Here for each bar, we find out the index of the first left bar which is smaller and also
+		the index of the first right bar which is smaller than current bar.
 		Then area = (height of this bar) * (lastHigherRight - lastHigherLeft)
 		return the max area found so far.
 	 * */
@@ -23,7 +24,7 @@ public class LargestRectangleHistogram {
 		return maxRectArea;
 	}
 	
-	//find index of leftmost bar which is STRICTLY smaller
+	//find index of first left bar which is STRICTLY smaller
 	private int getLastHigherLeft(int[]a, int index) {
 		int x=index;
 		while(x-1 >= 0 && a[x-1] >= a[index]) {
@@ -32,7 +33,7 @@ public class LargestRectangleHistogram {
 		return x;
 	}
 	
-	//find index of rightmost bar which is STRICTLY smaller
+	//find index of first right bar which is STRICTLY smaller
 	private int getLastHigherRight(int[]a, int index) {
 		int x = index;
 		while(x+1 < a.length && a[x+1] >= a[index] ) {
