@@ -14,7 +14,7 @@ Solution:
 	If the distance is less, then we update our result.
 	
 	Note that in this problem, we can skip indices for i, start and end if we encounter duplicates.
-	This will do some optimization but still the complexity is O(N).
+	This will do some optimization but still the complexity is O(N^2).
 
  * */
 public class ThreeSumClosest {
