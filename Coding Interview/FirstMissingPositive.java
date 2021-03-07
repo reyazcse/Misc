@@ -34,6 +34,8 @@ public class FirstMissingPositive {
 	 
 	 In our actual solution, we use 0 based indexing and hence for each element, its correct pos
 	 is given by element-1
+	 
+	 Time: O(n) since for each element we do at most swap to put it in correct place if such place exists
 	 * */
 	public int findMissingOptimized(int [] nums) {
 		for(int i=0; i<nums.length; i++) {
