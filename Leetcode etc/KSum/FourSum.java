@@ -43,8 +43,6 @@ public class FourSum {
 							}
 							
 						}
-						//skip duplicates after we are done with nums[j]
-						while(j < nums.length-2 && nums[j] == nums[j+1])j++;
 					}
 					
 				}
