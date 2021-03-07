@@ -33,7 +33,7 @@ public class ThreeSum {
 	
 	/////////////////////////////////////////////////////////////////////////////////////////
 	
-	//this solution is appropriate(but was not accepted for one large array :()
+	//ACCEPTED
 	public List<List<Integer>> threeSumNoDups(int[] nums) {
         List<List<Integer>> triplets = new ArrayList<List<Integer>>();
         if(nums == null || nums.length == 0) return triplets;   //base case
@@ -42,7 +42,6 @@ public class ThreeSum {
         for(int i=0; i<nums.length-2; i++) {
         	//move i to skip duplicates
         	if(i > 0 && nums[i] == nums[i-1]) {
-        		i++;
         		continue;
         	}
         	int start = i+1;
