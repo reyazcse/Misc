@@ -71,3 +71,4 @@ public class ProductExceptSelf {
 	}
 
 }
+//Note in leetcode soln, L[i] is prod of elements from i-1 till 0
